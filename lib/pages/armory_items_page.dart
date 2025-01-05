@@ -43,95 +43,97 @@ class ArmoryItemsPage extends StatelessWidget {
                 opacity: 0.1
             ),
           ),
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 30.w),
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    SizedBox(
-                      width: 176.w,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          GestureDetector(
-                            onTap: () => Navigator.of(context).pushReplacement(
-                                MaterialPageRoute(builder: (context) => BottomNavBarPage(currentPage: 2,))
+          child: SafeArea(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 30.w),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SizedBox(
+                        width: 176.w,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            GestureDetector(
+                              onTap: () => Navigator.of(context).pushReplacement(
+                                  MaterialPageRoute(builder: (context) => BottomNavBarPage(currentPage: 2,))
+                              ),
+                              child: Container(
+                                width: 54.w,
+                                height: 46.w,
+                                padding: EdgeInsets.all(4.w),
+                                child: Image.asset(Assets.images.back.path),
+                              ),
                             ),
-                            child: Container(
-                              width: 54.w,
-                              height: 46.w,
-                              padding: EdgeInsets.all(4.w),
-                              child: Image.asset(Assets.images.back.path),
-                            ),
-                          ),
-                          Text(weaponType, style: AppStyles.kHeadlinerWhite(30),),
-                        ],
-                      ),
-                    ),
-                    BlocSelector<WeaponsCubit, WeaponsState, GoldState?>(
-                      selector: (state) => state.gold,
-                      builder: (context, gold) {
-                        if (gold != null) {
-                          return Container(
-                            width: 83,
-                            height: 37,
-                            padding: EdgeInsets.all(8.w),
-                            decoration: BoxDecoration(
-                                image: DecorationImage(image: AssetImage(Assets.images.moneyCard.path))
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(gold.number.toString(), style: AppStyles.kExo2WhiteW500(16),),
-                                Image.asset(Assets.images.moneySign.path)
-                              ],
-                            ),
-                          );
-                        } else {
-                          return const SizedBox.shrink();
-                        }
-                      },
-                    )
-                  ],
-                ),
-                SizedBox(height: 20.w,),
-                BlocSelector<WeaponsCubit, WeaponsState, List<WeaponState>>(
-                  selector: (state) => state.weapons,
-                  builder: (context, weapons) {
-                    final List<WeaponState> currentWeapons = weapons.where((e) => e.type == weaponType).toList();
-                    if (currentWeapons.isNotEmpty) {
-                      return Expanded(
-                        child: ListView.builder(
-                          itemCount: currentWeapons.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            return WeaponCardBtn(
-                              imagePath: currentWeapons[index].imagePath,
-                              name: currentWeapons[index].name,
-                              price: currentWeapons[index].price.toString(),
-                              isBought: true,
-                              onPressed: () {
-                                Navigator.of(context).push(
-                                  MaterialPageRoute(builder: (context) => SellWeaponPage(weaponState: currentWeapons[index]))
-                                );
-                              },
-                            );
-                          },
-      
+                            Text(weaponType, style: AppStyles.kHeadlinerWhite(30),),
+                          ],
                         ),
-                      );
-                    } else {
-                      return Center(
-                        child: Text('No weapons yet', style: AppStyles.kExo2OrangeW700(24.sp),),
-                      );
-                    }
-                    
-      
-                  },
-                ),
-      
-              ],
+                      ),
+                      BlocSelector<WeaponsCubit, WeaponsState, GoldState?>(
+                        selector: (state) => state.gold,
+                        builder: (context, gold) {
+                          if (gold != null) {
+                            return Container(
+                              width: 83,
+                              height: 37,
+                              padding: EdgeInsets.all(8.w),
+                              decoration: BoxDecoration(
+                                  image: DecorationImage(image: AssetImage(Assets.images.moneyCard.path))
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(gold.number.toString(), style: AppStyles.kExo2WhiteW500(16),),
+                                  Image.asset(Assets.images.moneySign.path)
+                                ],
+                              ),
+                            );
+                          } else {
+                            return const SizedBox.shrink();
+                          }
+                        },
+                      )
+                    ],
+                  ),
+                  SizedBox(height: 20.w,),
+                  BlocSelector<WeaponsCubit, WeaponsState, List<WeaponState>>(
+                    selector: (state) => state.weapons,
+                    builder: (context, weapons) {
+                      final List<WeaponState> currentWeapons = weapons.where((e) => e.type == weaponType).toList();
+                      if (currentWeapons.isNotEmpty) {
+                        return Expanded(
+                          child: ListView.builder(
+                            itemCount: currentWeapons.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              return WeaponCardBtn(
+                                imagePath: currentWeapons[index].imagePath,
+                                name: currentWeapons[index].name,
+                                price: currentWeapons[index].price.toString(),
+                                isBought: true,
+                                onPressed: () {
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(builder: (context) => SellWeaponPage(weaponState: currentWeapons[index]))
+                                  );
+                                },
+                              );
+                            },
+                  
+                          ),
+                        );
+                      } else {
+                        return Center(
+                          child: Text('No weapons yet', style: AppStyles.kExo2OrangeW700(24.sp),),
+                        );
+                      }
+                      
+                  
+                    },
+                  ),
+                  
+                ],
+              ),
             ),
           ),
         ),

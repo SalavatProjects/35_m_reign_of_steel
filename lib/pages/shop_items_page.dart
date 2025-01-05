@@ -37,96 +37,98 @@ class ShopItemsPage extends StatelessWidget {
                 opacity: 0.1
             ),
         ),
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 30.w),
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SizedBox(
-                    width: 176.w,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        GestureDetector(
-                          onTap: () => Navigator.pop(context),
-                        child: Container(
-                          width: 54.w,
-                          height: 46.w,
-                          padding: EdgeInsets.all(4.w),
-                          child: Image.asset(Assets.images.back.path),
-                        ),
-                        ),
-                        Text(weaponType, style: AppStyles.kHeadlinerWhite(30),),
-                      ],
+        child: SafeArea(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 30.w),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(
+                      width: 176.w,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          GestureDetector(
+                            onTap: () => Navigator.pop(context),
+                          child: Container(
+                            width: 54.w,
+                            height: 46.w,
+                            padding: EdgeInsets.all(4.w),
+                            child: Image.asset(Assets.images.back.path),
+                          ),
+                          ),
+                          Text(weaponType, style: AppStyles.kHeadlinerWhite(30),),
+                        ],
+                      ),
                     ),
-                  ),
-                  BlocSelector<WeaponsCubit, WeaponsState, GoldState?>(
-                    selector: (state) => state.gold,
-                    builder: (context, gold) {
-                      if (gold != null) {
-                        return Container(
-                          width: 83,
-                          height: 37,
-                          padding: EdgeInsets.all(8.w),
-                          decoration: BoxDecoration(
-                              image: DecorationImage(image: AssetImage(Assets.images.moneyCard.path))
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(gold.number.toString(), style: AppStyles.kExo2WhiteW500(16),),
-                              Image.asset(Assets.images.moneySign.path)
-                            ],
-                          ),
-                        );
-                      } else {
-                        return const SizedBox.shrink();
-                      }
-                    },
-                  )
-                ],
+                    BlocSelector<WeaponsCubit, WeaponsState, GoldState?>(
+                      selector: (state) => state.gold,
+                      builder: (context, gold) {
+                        if (gold != null) {
+                          return Container(
+                            width: 83,
+                            height: 37,
+                            padding: EdgeInsets.all(8.w),
+                            decoration: BoxDecoration(
+                                image: DecorationImage(image: AssetImage(Assets.images.moneyCard.path))
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(gold.number.toString(), style: AppStyles.kExo2WhiteW500(16),),
+                                Image.asset(Assets.images.moneySign.path)
+                              ],
+                            ),
+                          );
+                        } else {
+                          return const SizedBox.shrink();
+                        }
+                      },
+                    )
+                  ],
+                ),
+                SizedBox(height: 20.w,),
+                BlocSelector<WeaponsCubit, WeaponsState, List<WeaponState>>(
+                selector: (state) => state.weapons,
+                builder: (context, weapons) {
+                  return Expanded(
+                    child: ListView.builder(
+                          itemCount: _weapons.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            WeaponState? weaponState = weapons.where((e) => e.imagePath == _weapons[index].$2).firstOrNull;
+                            return WeaponCardBtn(
+                              imagePath: _weapons[index].$2,
+                              name: _weapons[index].$3,
+                              price: _weapons[index].$4.toString(),
+                              isBought: weaponState != null ? true : false,
+                              onPressed: () {
+                                if (weaponState != null) {
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(builder: (context) => SellWeaponPage(weaponState: weaponState))
+                                  );
+                                } else {
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(builder: (context) => BuyWeaponPage(
+                                        type: _weapons[index].$1,
+                                        imagePath: _weapons[index].$2,
+                                        name: _weapons[index].$3,
+                                        price: _weapons[index].$4.toString()))
+                                  );
+                                }
+                              },
+                          );
+                          },
+                    
+                      ),
+                  );
+          
+                },
               ),
-              SizedBox(height: 20.w,),
-              BlocSelector<WeaponsCubit, WeaponsState, List<WeaponState>>(
-              selector: (state) => state.weapons,
-              builder: (context, weapons) {
-                return Expanded(
-                  child: ListView.builder(
-                        itemCount: _weapons.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          WeaponState? weaponState = weapons.where((e) => e.imagePath == _weapons[index].$2).firstOrNull;
-                          return WeaponCardBtn(
-                            imagePath: _weapons[index].$2,
-                            name: _weapons[index].$3,
-                            price: _weapons[index].$4.toString(),
-                            isBought: weaponState != null ? true : false,
-                            onPressed: () {
-                              if (weaponState != null) {
-                                Navigator.of(context).push(
-                                  MaterialPageRoute(builder: (context) => SellWeaponPage(weaponState: weaponState))
-                                );
-                              } else {
-                                Navigator.of(context).push(
-                                  MaterialPageRoute(builder: (context) => BuyWeaponPage(
-                                      type: _weapons[index].$1,
-                                      imagePath: _weapons[index].$2,
-                                      name: _weapons[index].$3,
-                                      price: _weapons[index].$4.toString()))
-                                );
-                              }
-                            },
-                        );
-                        },
-                  
-                    ),
-                );
-
-              },
+          
+              ],
             ),
-
-            ],
           ),
         ),
       ),
