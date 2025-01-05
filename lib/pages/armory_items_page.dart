@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:proj_35_m_reign_of_steel/bloc/gold_cubit.dart';
 import 'package:proj_35_m_reign_of_steel/bloc/weapon_cubit.dart';
 import 'package:proj_35_m_reign_of_steel/bloc/weapons_cubit.dart';
-import 'package:proj_35_m_reign_of_steel/gen/gen.dart';
 import 'package:proj_35_m_reign_of_steel/pages/bottom_nav_bar_page.dart';
 import 'package:proj_35_m_reign_of_steel/pages/buy_weapon_page.dart';
 import 'package:proj_35_m_reign_of_steel/pages/sell_weapon_page.dart';
@@ -38,7 +37,7 @@ class ArmoryItemsPage extends StatelessWidget {
           decoration: BoxDecoration(
             color: AppColors.kBackground,
             image: DecorationImage(
-                image: AssetImage(Assets.images.noise.path),
+                image: AssetImage('assets/images/Noise.png'),
                 fit: BoxFit.fill,
                 opacity: 0.1
             ),
@@ -64,7 +63,7 @@ class ArmoryItemsPage extends StatelessWidget {
                                 width: 54.w,
                                 height: 46.w,
                                 padding: EdgeInsets.all(4.w),
-                                child: Image.asset(Assets.images.back.path),
+                                child: Image.asset('assets/images/back.png'),
                               ),
                             ),
                             Text(weaponType, style: AppStyles.kHeadlinerWhite(30),),
@@ -80,13 +79,13 @@ class ArmoryItemsPage extends StatelessWidget {
                               height: 37,
                               padding: EdgeInsets.all(8.w),
                               decoration: BoxDecoration(
-                                  image: DecorationImage(image: AssetImage(Assets.images.moneyCard.path))
+                                  image: DecorationImage(image: AssetImage('assets/images/money card.png'))
                               ),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(gold.number.toString(), style: AppStyles.kExo2WhiteW500(16),),
-                                  Image.asset(Assets.images.moneySign.path)
+                                  Image.asset('assets/images/money sign.png')
                                 ],
                               ),
                             );

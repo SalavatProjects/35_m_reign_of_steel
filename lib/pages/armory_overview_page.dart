@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:proj_35_m_reign_of_steel/gen/gen.dart';
 import 'package:proj_35_m_reign_of_steel/ui_kit/ui_kit.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -8,14 +7,15 @@ class ArmoryOverviewPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // print(Assets.images.back.path);
     return Scaffold(
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             color: AppColors.kBackground,
             image: DecorationImage(
-                image: AssetImage(Assets.images.overviewBackground.path),
+                image: AssetImage('assets/images/overview background.png'),
                 fit: BoxFit.fill,
             )
         ),
@@ -31,7 +31,7 @@ class ArmoryOverviewPage extends StatelessWidget {
                     width: 54.w,
                     height: 46.w,
                     padding: EdgeInsets.all(4.w),
-                    child: Image.asset(Assets.images.back.path),
+                    child: Image.asset('assets/images/back.png'),
                   ),
                 ),
                 SizedBox(height: 30.w,),

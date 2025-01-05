@@ -6,7 +6,6 @@ import 'package:proj_35_m_reign_of_steel/bloc/gold_cubit.dart';
 import 'package:proj_35_m_reign_of_steel/bloc/weapon_cubit.dart';
 import 'package:proj_35_m_reign_of_steel/pages/armory_items_page.dart';
 import 'package:proj_35_m_reign_of_steel/ui_kit/ui_kit.dart';
-import 'package:proj_35_m_reign_of_steel/gen/gen.dart';
 import 'package:proj_35_m_reign_of_steel/widgets/widgets.dart';
 
 import '../bloc/weapons_cubit.dart';
@@ -38,7 +37,7 @@ class BuyWeaponPage extends StatelessWidget {
         decoration: BoxDecoration(
           color: AppColors.kBackground,
           image: DecorationImage(
-              image: AssetImage(Assets.images.noise.path),
+              image: AssetImage('assets/images/Noise.png'),
               fit: BoxFit.fill,
               opacity: 0.1
           ),
@@ -62,7 +61,7 @@ class BuyWeaponPage extends StatelessWidget {
                               width: 54.w,
                               height: 46.w,
                               padding: EdgeInsets.all(4.w),
-                              child: Image.asset(Assets.images.back.path),
+                              child: Image.asset('assets/images/back.png'),
                             ),
                           ),
                           Text(type, style: AppStyles.kHeadlinerDeepOrange(30),),
@@ -72,7 +71,7 @@ class BuyWeaponPage extends StatelessWidget {
                     SizedBox(
                       width: 25.w,
                       height: 25.w,
-                      child: Image.asset(Assets.images.ammoSilver.path),
+                      child: Image.asset('assets/images/ammo silver.png'),
                     )
                   ],
                 ),
@@ -95,7 +94,7 @@ class BuyWeaponPage extends StatelessWidget {
                     children: [
                       Text(price, style: AppStyles.kExo2YellowW600(20.sp),),
                       SizedBox(width: 5.w,),
-                      Image.asset(Assets.images.moneySign.path)
+                      Image.asset('assets/images/money sign.png')
                     ],
                   ),
                 ),

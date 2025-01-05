@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:proj_35_m_reign_of_steel/ui_kit/ui_kit.dart';
-import 'package:proj_35_m_reign_of_steel/gen/gen.dart';
 
 class FlashUpWidget extends StatelessWidget {
   const FlashUpWidget({super.key});
@@ -15,7 +14,7 @@ class FlashUpWidget extends StatelessWidget {
         children: [
           Align(
             alignment: const Alignment(0.0, 0.0),
-            child: Image.asset(Assets.images.ellipse.path),
+            child: Image.asset('assets/images/Ellipse.png'),
           ),
           Align(
             alignment: const Alignment(0.0, 15.0),

@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:proj_35_m_reign_of_steel/gen/gen.dart';
 import 'package:proj_35_m_reign_of_steel/ui_kit/ui_kit.dart';
 
 class MenuBtn extends StatelessWidget {
@@ -24,7 +23,7 @@ class MenuBtn extends StatelessWidget {
             width: MediaQuery.of(context).size.width,
             height: 45.w,
             decoration: BoxDecoration(
-              image: DecorationImage(image: AssetImage(Assets.images.menuCard.path))
+              image: DecorationImage(image: AssetImage('assets/images/menu card.png'))
             ),
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 24.w),
@@ -37,7 +36,7 @@ class MenuBtn extends StatelessWidget {
                       Text(text, style: AppStyles.kExo2BlackW900(20),)
                     ],
                   ),
-                  SvgPicture.asset(Assets.icons.arrowRight)
+                  SvgPicture.asset('assets/icons/arrow right.svg')
                 ],
               ),
             ),

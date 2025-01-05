@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:proj_35_m_reign_of_steel/pages/armory_items_page.dart';
 import 'package:proj_35_m_reign_of_steel/ui_kit/ui_kit.dart';
-import 'package:proj_35_m_reign_of_steel/gen/gen.dart';
 import 'package:proj_35_m_reign_of_steel/utils/constants.dart';
 import 'package:proj_35_m_reign_of_steel/widgets/widgets.dart';
 import 'armory_overview_page.dart';
@@ -34,7 +33,7 @@ class ArmoryPage extends StatelessWidget {
                         child: Center(
                           child: CupertinoButton(
                               padding: EdgeInsets.zero,
-                              child: SvgPicture.asset(Assets.icons.about),
+                              child: SvgPicture.asset('assets/icons/about.svg'),
                               onPressed: () => Navigator.of(context).push(
                               MaterialPageRoute(builder: (context) => const ArmoryOverviewPage()))),
                         ),
@@ -44,7 +43,7 @@ class ArmoryPage extends StatelessWidget {
                         child: Center(
                           child: CupertinoButton(
                               padding: EdgeInsets.zero,
-                              child: SvgPicture.asset(Assets.icons.settings),
+                              child: SvgPicture.asset('assets/icons/settings.svg'),
                               onPressed: () {}),
                         ),
                       ),

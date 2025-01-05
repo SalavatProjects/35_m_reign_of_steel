@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:proj_35_m_reign_of_steel/ui_kit/ui_kit.dart';
-import 'package:proj_35_m_reign_of_steel/gen/gen.dart';
 
 class WeaponCardBtn extends StatelessWidget {
   String imagePath;
@@ -32,7 +31,7 @@ class WeaponCardBtn extends StatelessWidget {
           height: 144.w,
           padding: EdgeInsets.all(10.w),
           decoration: BoxDecoration(
-            image: DecorationImage(image: AssetImage(Assets.images.card.path))
+            image: DecorationImage(image: AssetImage('assets/images/card.png'))
           ),
           child: Stack(
             children: [
@@ -42,7 +41,7 @@ class WeaponCardBtn extends StatelessWidget {
                   width: 38.w,
                   height: 38.w,
                   padding: EdgeInsets.all(6.w),
-                  child: Image.asset(isBought ? Assets.images.ammoGold.path : Assets.images.ammoSilver.path),
+                  child: Image.asset(isBought ? 'assets/images/ammo gold.png' : 'assets/images/ammo silver.png'),
                 ),
               ),
               Align(
@@ -82,7 +81,7 @@ class WeaponCardBtn extends StatelessWidget {
                     children: [
                       Text(price, style: AppStyles.kExo2YellowW600(14.sp),),
                       SizedBox(width: 5.w,),
-                      Image.asset(Assets.images.moneySign.path)
+                      Image.asset('assets/images/money sign.png')
                     ],
                   ),
                 ),

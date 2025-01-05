@@ -1,5 +1,5 @@
 import 'package:proj_35_m_reign_of_steel/ui_kit/ui_kit.dart';
-import 'package:proj_35_m_reign_of_steel/gen/gen.dart';
+
 
 abstract class AppConstants {
   static const String goldBox = 'gold_box';
@@ -9,31 +9,31 @@ abstract class AppConstants {
   static const List<String> weaponsType = ['Melee', 'Pistol', 'Rifle', 'Shotgun', 'Sniper',];
 
   static final weapons = <(String type, String imagePath, String name, int price)>[
-    ('Melee', Assets.images.pan.path, 'Pan', 25),
-    ('Melee', Assets.images.spikedBat.path, 'Spiked Bat', 20),
-    ('Melee', Assets.images.katana.path, 'Katana', 30),
-    ('Melee', Assets.images.dagger.path, 'Dagger', 15),
-    ('Melee', Assets.images.crowbar.path, 'Crowbar', 20),
+    ('Melee', 'assets/images/pan.png', 'Pan', 25),
+    ('Melee', 'assets/images/spiked bat.png', 'Spiked Bat', 20),
+    ('Melee', 'assets/images/katana.png', 'Katana', 30),
+    ('Melee', 'assets/images/dagger.png', 'Dagger', 15),
+    ('Melee', 'assets/images/crowbar.png', 'Crowbar', 20),
 
-    ('Pistol', Assets.images.p1911.path, 'P1911', 15),
-    ('Pistol', Assets.images.desertEagle.path, 'Desert Eagle', 15),
-    ('Pistol', Assets.images.flareGun.path, 'Flare gun', 15),
-    ('Pistol', Assets.images.microUZI.path, 'Micro UZI', 15),
+    ('Pistol', 'assets/images/p1911.png', 'P1911', 15),
+    ('Pistol', 'assets/images/Desert Eagle.png', 'Desert Eagle', 15),
+    ('Pistol', 'assets/images/Flare gun.png', 'Flare gun', 15),
+    ('Pistol', 'assets/images/Micro UZI.png', 'Micro UZI', 15),
 
-    ('Rifle', Assets.images.aK47Gold.path, 'AK-47 Gold', 35),
-    ('Rifle', Assets.images.m416.path, 'M416', 25),
-    ('Rifle', Assets.images.bcc.path, 'BCC', 25),
-    ('Rifle', Assets.images.steyrAUG.path, 'Steyr AUG', 20),
-    ('Rifle', Assets.images.m416Violet.path, 'M416', 35),
+    ('Rifle', 'assets/images/AK-47 Gold.png', 'AK-47 Gold', 35),
+    ('Rifle', 'assets/images/M416.png', 'M416', 25),
+    ('Rifle', 'assets/images/BCC.png', 'BCC', 25),
+    ('Rifle', 'assets/images/Steyr AUG.png', 'Steyr AUG', 20),
+    ('Rifle', 'assets/images/M416 violet.png', 'M416', 35),
 
-    ('Shotgun', Assets.images.s1897.path, 'S1897', 35),
-    ('Shotgun', Assets.images.s686.path, 'S686', 30),
-    ('Shotgun', Assets.images.s12k.path, 'S12K', 25),
-    ('Shotgun', Assets.images.m1014.path, 'M1014', 35),
+    ('Shotgun', 'assets/images/S1897.png', 'S1897', 35),
+    ('Shotgun', 'assets/images/S686.png', 'S686', 30),
+    ('Shotgun', 'assets/images/S12K.png', 'S12K', 25),
+    ('Shotgun', 'assets/images/M1014.png', 'M1014', 35),
 
-    ('Sniper', Assets.images.kar98K.path, 'Kar98K', 45),
-    ('Sniper', Assets.images.awm.path, 'AWM', 50),
-    ('Sniper', Assets.images.m24.path, 'M24', 55),
-    ('Sniper', Assets.images.kar98KBrown.path, 'Kar98K', 60),
+    ('Sniper', 'assets/images/Kar98K.png', 'Kar98K', 45),
+    ('Sniper', 'assets/images/AWM.png', 'AWM', 50),
+    ('Sniper', 'assets/images/M24.png', 'M24', 55),
+    ('Sniper', 'assets/images/Kar98K brown.png', 'Kar98K', 60),
   ];
 }

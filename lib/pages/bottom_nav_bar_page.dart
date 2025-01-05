@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:proj_35_m_reign_of_steel/pages/armory_page.dart';
 import 'package:proj_35_m_reign_of_steel/ui_kit/ui_kit.dart';
-import 'package:proj_35_m_reign_of_steel/gen/gen.dart';
 import 'shop_page.dart';
 
 class BottomNavBarPage extends StatefulWidget {
@@ -45,7 +44,7 @@ class _BottomNavBarPageState extends State<BottomNavBarPage> {
         decoration: BoxDecoration(
             color: AppColors.kBackground,
             image: DecorationImage(
-                image: AssetImage(Assets.images.noise.path),
+                image: AssetImage('assets/images/Noise.png'),
                 fit: BoxFit.fill,
                 opacity: 0.1
             )
@@ -62,7 +61,7 @@ class _BottomNavBarPageState extends State<BottomNavBarPage> {
                   width: MediaQuery.of(context).size.width,
                   height: 75.w,
                   decoration: BoxDecoration(
-                    image: DecorationImage(image: AssetImage(Assets.images.bottomNavBar.path),)
+                    image: DecorationImage(image: AssetImage('assets/images/bottom nav bar.png'),)
                   ),
                   child: Padding(
                       padding: EdgeInsets.symmetric(horizontal: 35.w),
@@ -70,7 +69,7 @@ class _BottomNavBarPageState extends State<BottomNavBarPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           _BottomNavBarItem(
-                              iconPath: Assets.icons.game,
+                              iconPath: 'assets/icons/game.svg',
                               text: 'Game',
                               onPressed: () {
                                 setState(() {
@@ -80,7 +79,7 @@ class _BottomNavBarPageState extends State<BottomNavBarPage> {
                             isSelected: _currentPage == 0,
                           ),
                           _BottomNavBarItem(
-                            iconPath: Assets.icons.shop,
+                            iconPath: 'assets/icons/shop.svg',
                             text: 'Shop',
                             onPressed: () {
                               setState(() {
@@ -90,7 +89,7 @@ class _BottomNavBarPageState extends State<BottomNavBarPage> {
                             isSelected: _currentPage == 1,
                           ),
                           _BottomNavBarItem(
-                            iconPath: Assets.icons.treasureBox,
+                            iconPath: 'assets/icons/Treasure Box.svg',
                             text: 'Armory',
                             onPressed: () {
                               setState(() {

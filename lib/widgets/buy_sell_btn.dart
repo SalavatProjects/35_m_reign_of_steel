@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:proj_35_m_reign_of_steel/gen/gen.dart';
 import 'package:proj_35_m_reign_of_steel/ui_kit/ui_kit.dart';
 
 class BuySellBtn extends StatelessWidget {
@@ -22,8 +21,8 @@ class BuySellBtn extends StatelessWidget {
       child: Container(
         width: 220.w,
         height: 40.w,
-        decoration: BoxDecoration(
-          image: DecorationImage(image: AssetImage(Assets.images.buySell.path))
+        decoration: const BoxDecoration(
+          image: DecorationImage(image: AssetImage('assets/images/buy_sell.png'))
         ),
         child: Center(child: Text(text.toUpperCase(), style: AppStyles.kExo2OrangeW700(18).copyWith(color: AppColors.kBlack),)),
       ),
