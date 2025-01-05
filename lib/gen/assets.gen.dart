@@ -142,6 +142,10 @@ class $AssetsImagesGen {
   AssetGenImage get moneySign =>
       const AssetGenImage('assets/images/money sign.png');
 
+  /// File path: assets/images/overview background.png
+  AssetGenImage get overviewBackground =>
+      const AssetGenImage('assets/images/overview background.png');
+
   /// File path: assets/images/p1911.png
   AssetGenImage get p1911 => const AssetGenImage('assets/images/p1911.png');
 
@@ -184,6 +188,7 @@ class $AssetsImagesGen {
         menuCard,
         moneyCard,
         moneySign,
+        overviewBackground,
         p1911,
         pan,
         spikedBat

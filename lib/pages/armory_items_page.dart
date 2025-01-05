@@ -25,7 +25,6 @@ class ArmoryItemsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final List<(String type, String imagePath, String name, int price)> _weapons = AppConstants.weapons.where((e) => e.$1 == weaponType).toList();
     return PopScope(
       onPopInvokedWithResult: (didPop, result) {
         Navigator.of(context).pushReplacement(

@@ -7,6 +7,7 @@ import 'package:proj_35_m_reign_of_steel/ui_kit/ui_kit.dart';
 import 'package:proj_35_m_reign_of_steel/gen/gen.dart';
 import 'package:proj_35_m_reign_of_steel/utils/constants.dart';
 import 'package:proj_35_m_reign_of_steel/widgets/widgets.dart';
+import 'armory_overview_page.dart';
 import 'shop_items_page.dart';
 
 class ArmoryPage extends StatelessWidget {
@@ -34,7 +35,8 @@ class ArmoryPage extends StatelessWidget {
                           child: CupertinoButton(
                               padding: EdgeInsets.zero,
                               child: SvgPicture.asset(Assets.icons.about),
-                              onPressed: () {}),
+                              onPressed: () => Navigator.of(context).push(
+                              MaterialPageRoute(builder: (context) => const ArmoryOverviewPage()))),
                         ),
                       ),
                       SizedBox(
